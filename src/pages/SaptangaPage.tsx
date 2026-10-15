@@ -145,46 +145,81 @@ export const SaptangaPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Comprehensive 7-Pillars Matrix Summary */}
-      <div className="pt-8 border-t border-[#5A3A22]/20 space-y-6">
-        <div className="max-w-2xl">
-          <h3 className="font-serif text-2xl font-bold text-[#2E1B0F]">
-            The Sovereign Spectrum
+      {/* Comprehensive Master Comparison Table: Kautilya's Meaning vs GandhaNiti Equivalent */}
+      <section className="pt-8 border-t border-[#5A3A22]/20 space-y-6">
+        <div>
+          <span className="text-xs font-mono uppercase tracking-widest text-[#B8902B] font-bold">
+            The Governance Ledger · कौटिलीय नीति
+          </span>
+          <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#2E1B0F] mt-1">
+            Kautilya’s Arthashastra Framework & The GandhaNiti Equivalent
           </h3>
-          <p className="text-xs text-[#5A3A22] leading-relaxed">
-            Every operational policy at GandhaNiti traces back directly to one of these seven constitutive elements.
+          <p className="text-xs sm:text-sm text-[#5A3A22] leading-relaxed max-w-2xl mt-1">
+            Honest trade was treated as a duty of the state. Below is our direct operational translation of the Saptanga elements into modern ethical commerce.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {SAPTANGA_ELEMENTS.map((elem) => (
-            <div
-              key={elem.id}
-              className={`p-4 rounded-[2px] border transition-all cursor-pointer ${
-                elem.id === selectedElement.id
-                  ? 'bg-[#E4D2A8]/60 border-[#B8902B]'
-                  : 'bg-[#F1E6CC] border-[#5A3A22]/20 hover:border-[#B8902B]'
-              }`}
-              onClick={() => setSelectedElement(elem)}
-            >
-              <div className="flex items-center justify-between mb-1.5">
-                <span className="font-serif font-bold text-sm text-[#2E1B0F]">
-                  {elem.name} ({elem.devanagari})
-                </span>
-                <span className="text-[10px] font-mono text-[#8A5A36]">
-                  {elem.id.toUpperCase()}
-                </span>
-              </div>
-              <p className="text-xs text-[#5A3A22] line-clamp-2 leading-relaxed">
-                {elem.gandhanitiAction}
-              </p>
-              <span className="text-[11px] font-semibold text-[#8A5A36] hover:text-[#2E1B0F] mt-2 block">
-                Select Pillar →
-              </span>
-            </div>
-          ))}
+        <div className="parchment-card p-4 sm:p-6 overflow-hidden">
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs font-mono border-collapse">
+              <thead>
+                <tr className="border-b-2 border-[#5A3A22]/30 text-[#8A5A36] bg-[#E4D2A8]/30">
+                  <th className="py-3 px-3 font-serif font-bold text-sm text-[#2E1B0F] w-48">Element</th>
+                  <th className="py-3 px-3 font-semibold text-[#5A3A22] w-64">Kautilya’s meaning</th>
+                  <th className="py-3 px-3 font-semibold text-[#2E1B0F]">GandhaNiti equivalent</th>
+                  <th className="py-3 px-3 font-semibold text-right w-28">Pillar Link</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-[#5A3A22]/15">
+                {SAPTANGA_ELEMENTS.map((elem) => {
+                  const isSelected = elem.id === selectedElement.id;
+                  return (
+                    <tr
+                      key={elem.id}
+                      onClick={() => setSelectedElement(elem)}
+                      className={`cursor-pointer transition-colors ${
+                        isSelected ? 'bg-[#E4D2A8]/70 border-l-3 border-[#B8902B]' : 'hover:bg-[#E4D2A8]/30'
+                      }`}
+                    >
+                      <td className="py-3 px-3">
+                        <div className="flex items-center gap-2">
+                          <span className="w-5 h-5 rounded-full border border-[#B8902B] flex items-center justify-center bg-[#F1E6CC] text-[10px] font-devanagari text-[#6B1E1E] font-bold shrink-0">
+                            {elem.devanagari.slice(0, 1)}
+                          </span>
+                          <div>
+                            <span className="font-serif font-bold text-sm text-[#2E1B0F] block">
+                              {elem.title}
+                            </span>
+                            <span className="font-devanagari text-[10px] text-[#8A5A36]">
+                              {elem.devanagari}
+                            </span>
+                          </div>
+                        </div>
+                      </td>
+                      <td className="py-3 px-3 text-[#5A3A22] font-sans leading-relaxed">
+                        {elem.kautilyaMeaning}
+                      </td>
+                      <td className="py-3 px-3 text-[#2E1B0F] font-sans font-medium leading-relaxed">
+                        {elem.gandhanitiEquivalent}
+                      </td>
+                      <td className="py-3 px-3 text-right">
+                        <a
+                          href={`#${elem.actionPageLink}`}
+                          onClick={(e) => e.stopPropagation()}
+                          className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#6B1E1E] hover:underline"
+                        >
+                          <span>Visit</span>
+                          <ArrowRight className="w-3 h-3" />
+                        </a>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };

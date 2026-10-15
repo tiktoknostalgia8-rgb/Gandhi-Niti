@@ -40,7 +40,7 @@ export const BatchPassportPage: React.FC = () => {
             The Batch Passport System
           </h1>
           <p className="text-sm text-[#5A3A22] max-w-xl mt-1 leading-relaxed">
-            Every flacon of GandhaNiti ittar carries a unique batch serial and wax seal. This is an immutable transparency record, not artificial intelligence.
+            In Kautilya’s statecraft, Durga represents the fortress—defences that protect the state. For GandhaNiti, Durga is the protection of the brand: batch-passport QR codes, authenticity verification, secure simulated payments, tamper-proof packaging, and data security. This directly answers the fake-ittar problem.
           </p>
         </div>
 

@@ -71,7 +71,7 @@ export const BusinessModelPage: React.FC = () => {
             Kosha: Open Unit Economics
           </h1>
           <p className="text-sm text-[#5A3A22] max-w-2xl mt-1 leading-relaxed">
-            In Book II of the Arthashastra, Kautilya required honest merchant ledgers and fair state pricing. We share our financial anatomy transparently for judges, partners, and patrons.
+            In Book II of the Arthashastra, Kautilya treated the treasury (Kosha) as the wealth that keeps the state running. At GandhaNiti, Kosha is our finances: unit economics, margins, repeat purchases, working capital, and a fair share to distillers.
           </p>
         </div>
 

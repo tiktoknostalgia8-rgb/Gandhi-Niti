@@ -78,7 +78,7 @@ export const CorporateGiftingPage: React.FC = () => {
             Corporate Patronage & Gifting
           </h1>
           <p className="text-sm text-[#5A3A22] max-w-2xl mt-1 leading-relaxed">
-            Replace disposable corporate swag with living Indian heritage. Sponsor authentic Kannauj hydro-distillation batches for your leadership summits, distinguished clients, and festive milestones.
+            In Kautilya’s statecraft, Mitra represents the allies—friendly states that support you. For GandhaNiti, Mitra is our partners: distillers, cooperatives, courier partners, corporate gifting clients, and influencers or craft organisations.
           </p>
         </div>
 

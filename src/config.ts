@@ -36,38 +36,38 @@ export const SITE_CONFIG = {
     teammates: [
       {
         name: "Aryavrat Sharma",
-        role: "Co-Founder & Heritage Sourcing Lead",
+        role: "Co-Founder · Heritage Bhatthi Sourcing & Provenance",
         saptangaPillar: "Swami",
         saptangaMeaning: "The Ruler / Leadership & Vision",
-        tagline: "Preserving Kannauj's copper-deg legacy through digital transparency.",
-        bio: "Dedicated to reviving traditional hydro-distillation and establishing direct lineage between multigenerational bhatthis and discerning modern fragrance connoisseurs."
+        tagline: "Setting the vision: revive Kannauj ittar for a generation that has never smelled it.",
+        bio: "Sets guild direction and manages on-ground relationships with multi-generational Kannauj bhatthis, ensuring copper deg standards and seasonal farmer advance wages."
       },
       {
         name: "Meera Kulkarni",
-        role: "Co-Founder & Chief Product Strategist",
+        role: "Co-Founder · Operations, Scent Architecture & Digital Systems",
         saptangaPillar: "Amatya",
         saptangaMeaning: "The Minister / Operations & Scent Architecture",
-        tagline: "Connecting Arthashastra market ethics with contemporary olfactory design.",
-        bio: "Specializing in natural botanicals, supply-chain verification, and developing our interactive diagnostic quiz to match real individuals with genuine Kannauj distillations."
+        tagline: "Bridging classical distillation with modern diagnostic experiences.",
+        bio: "Directs product design, our 6-step olfactory diagnostic quiz, web development, and Batch Passport laboratory verification protocols."
       }
     ] as TeamMember[],
     advisers: [
       {
-        name: "Master Deg Distiller (Kannauj Cooperative)",
-        role: "Honorary Craft Adviser",
+        name: "Master Deg Distiller (Kannauj Guild)",
+        role: "Scent & Alembic Craft Adviser (Planned)",
         saptangaPillar: "Amatya",
         saptangaMeaning: "Adviser",
-        tagline: "Fourth-generation deg-bapka practitioner.",
-        bio: "Advises on copper thickness, fire monitoring using dry wood, and bamboo receiver seasoning.",
+        tagline: "We plan to onboard a Kannauj distiller as an adviser.",
+        bio: "Planned formal advisory role to counsel on cauldron metallurgy, babool wood heat monitoring, and bamboo chonga receiver seasoning.",
         isPlanned: true
       },
       {
         name: "Senior Botanical Analytical Chemist",
-        role: "Quality & Chromatography Consultant",
+        role: "GC-MS Purity Consultant (Planned)",
         saptangaPillar: "Amatya",
         saptangaMeaning: "Adviser",
-        tagline: "GC-MS purity validation specialist.",
-        bio: "Guides testing standards to verify natural constituents and total absence of diethyl phthalate (DEP).",
+        tagline: "Independent analytical validation.",
+        bio: "Planned advisory role ensuring zero synthetic phthalates (DEP) and verifying authentic botanical santalol thresholds.",
         isPlanned: true
       }
     ] as TeamMember[]

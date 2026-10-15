@@ -43,7 +43,7 @@ export const ReturnsPage: React.FC = () => {
           <strong>Scholarly Note on Kautilya's Terminology:</strong> In the Saptanga model of the Arthashastra, <em>Danda</em> represents the sovereign's legitimate enforcement of order, judicial standards, and regulatory policing—the power of the state to protect fair commerce, penalize counterfeiters, and guarantee weights.
         </p>
         <p className="leading-relaxed">
-          This is fundamentally separate from the <em>Upayas</em> (Sama, Dana, Bheda, Danda), which are foreign policy strategies of diplomatic conciliation, concessions, division, or military coercion. At GandhaNiti, Danda is the sovereign enforcement of pure ingredients.
+          This is fundamentally separate from the <em>Upayas</em> (Sama, Dana, Bheda, Danda), which are foreign policy strategies of diplomatic conciliation, concessions, division, or military coercion. At GandhaNiti, <strong>“Our Danda is our quality enforcement”</strong>—strict supplier standards, rigorous batch testing, an equitable return policy, and the refusal to list unverified products.
         </p>
       </div>
 

@@ -36,6 +36,9 @@ export const AboutUs: React.FC = () => {
         </div>
 
         <p className="text-sm text-[#5A3A22] leading-relaxed">
+          In Kautilya’s framework, <strong>Janapada</strong> represents the population and land that sustain the state. For GandhaNiti, this is our customers and the Kannauj distiller community. Our customers: young professionals seeking pure botanical fragrance, mindful gifters, and corporate organizations. Our territory: direct Kannauj hydro-distillation sourcing connecting to an India-wide online market.
+        </p>
+        <p className="text-sm text-[#5A3A22] leading-relaxed">
           Unlike modern commercial perfumes made by dissolving synthetic chemicals into volatile denatured alcohol, authentic Kannauj ittar is 100% botanical oil hydro-distilled in a closed apparatus known as the <strong className="text-[#2E1B0F]">Deg-Bapka</strong> system.
         </p>
 

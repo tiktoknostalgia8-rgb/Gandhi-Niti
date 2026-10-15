@@ -5,6 +5,8 @@ import { ProductCard } from '../components/ProductCard';
 import { Hero3D } from '../components/Hero3D';
 import { SaptangaTag } from '../components/SaptangaTag';
 import { SAPTANGA_ELEMENTS } from '../data/saptanga';
+import { ContainerScroll } from '../components/ContainerScroll';
+import { AlembicRegistryShowcase } from '../components/AlembicRegistryShowcase';
 import { ArrowRight, Compass, ShieldCheck, Sparkles, Droplets, BookOpen } from 'lucide-react';
 
 export const Home: React.FC = () => {
@@ -176,6 +178,27 @@ export const Home: React.FC = () => {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* 2.5 3D CONTAINER SCROLL SHOWCASE: THE KANNAUJ ALEMBIQ & LIVE REGISTRY */}
+      <section className="relative overflow-hidden py-4">
+        <ContainerScroll
+          titleComponent={
+            <div className="space-y-3">
+              <span className="text-xs font-mono uppercase tracking-widest text-[#B8902B] font-bold">
+                Pillar IV: Live Cauldron Traceability · दुर्गाङ्ग
+              </span>
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#2E1B0F] tracking-tight">
+                Scroll into the Kannauj Bhatthi
+              </h2>
+              <p className="text-xs sm:text-sm text-[#5A3A22] max-w-xl mx-auto leading-relaxed">
+                Experience living hydro-distillation telemetry. Rotate perspective to inspect active copper deg alembics, wood-fired embers, and verified batch certificates.
+              </p>
+            </div>
+          }
+        >
+          <AlembicRegistryShowcase />
+        </ContainerScroll>
       </section>
 
       {/* 3. FEATURED PRODUCTS COLLECTION */}
