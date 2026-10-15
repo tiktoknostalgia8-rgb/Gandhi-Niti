@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SITE_CONFIG } from '../config';
 import { PRODUCTS } from '../data/products';
 import { ProductCard } from '../components/ProductCard';
@@ -7,10 +7,58 @@ import { SaptangaTag } from '../components/SaptangaTag';
 import { SAPTANGA_ELEMENTS } from '../data/saptanga';
 import { ContainerScroll } from '../components/ContainerScroll';
 import { AlembicRegistryShowcase } from '../components/AlembicRegistryShowcase';
-import { ArrowRight, Compass, ShieldCheck, Sparkles, Droplets, BookOpen } from 'lucide-react';
+import {
+  ArrowRight,
+  Compass,
+  ShieldCheck,
+  Sparkles,
+  Droplets,
+  BookOpen,
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  CheckCircle2,
+  Clock
+} from 'lucide-react';
 
 export const Home: React.FC = () => {
   const featuredProducts = PRODUCTS.slice(0, 6);
+
+  // Contact Form State
+  const [contactForm, setContactForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    subject: 'Olfactory Guidance / Scent Selection',
+    message: ''
+  });
+  const [contactErrors, setContactErrors] = useState<Record<string, string>>({});
+  const [contactSubmitted, setContactSubmitted] = useState(false);
+
+  const handleContactSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const errs: Record<string, string> = {};
+    if (!contactForm.name.trim()) errs.name = 'Please provide your full name.';
+    if (!contactForm.email.trim() || !/^\S+@\S+\.\S+$/.test(contactForm.email)) {
+      errs.email = 'A valid email is required for our response.';
+    }
+    if (!contactForm.message.trim() || contactForm.message.length < 10) {
+      errs.message = 'Please share your query (minimum 10 characters).';
+    }
+
+    if (Object.keys(errs).length > 0) {
+      setContactErrors(errs);
+      return;
+    }
+
+    setContactErrors({});
+    setContactSubmitted(true);
+  };
+
+  const mailtoLink = `mailto:${SITE_CONFIG.contact.email}?subject=${encodeURIComponent(contactForm.subject)}&body=${encodeURIComponent(
+    `Name: ${contactForm.name}\nPhone: ${contactForm.phone}\nEmail: ${contactForm.email}\n\nMessage:\n${contactForm.message}`
+  )}`;
 
   return (
     <div className="space-y-20 pb-20">
@@ -389,6 +437,195 @@ export const Home: React.FC = () => {
             >
               Contact Guild
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. DIRECT GUILD CONTACT FORM (AT THE LAST OF HOME PAGE) */}
+      <section id="contact-guild" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="parchment-card p-6 sm:p-10 border-2 border-[#B8902B] space-y-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#5A3A22]/20 pb-6">
+            <div>
+              <span className="text-xs font-mono uppercase tracking-widest text-[#B8902B] font-bold">
+                Direct Line to the Founders · पत्र सम्प्रेषण
+              </span>
+              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-[#2E1B0F] mt-1">
+                Have a Question or Wish to Connect?
+              </h2>
+              <p className="text-xs sm:text-sm text-[#5A3A22] max-w-2xl mt-1 leading-relaxed">
+                Whether seeking guidance selecting an ittar flacon, verifying batch provenance, inquiring about corporate gifting, or discussing Kannauj distiller partnerships.
+              </p>
+            </div>
+            <div className="shrink-0">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#E4D2A8]/50 border border-[#B8902B]/40 rounded-[2px] text-xs font-mono text-[#8A5A36]">
+                <Clock className="w-3.5 h-3.5 text-[#B8902B]" />
+                <span>Response within 24 Hours</span>
+              </span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            {/* Left: Official Credentials */}
+            <div className="lg:col-span-5 space-y-4">
+              <div className="p-5 bg-[#E4D2A8]/30 border border-[#5A3A22]/20 rounded-[2px] space-y-4 text-xs">
+                <h3 className="font-serif font-bold text-base text-[#2E1B0F]">
+                  Kannauj Distillers’ Quarter Registry Desk
+                </h3>
+
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <Mail className="w-4 h-4 text-[#B8902B] shrink-0 mt-0.5" />
+                    <div>
+                      <span className="font-bold text-[#2E1B0F] block">Electronic Mail:</span>
+                      <a
+                        href={`mailto:${SITE_CONFIG.contact.email}`}
+                        className="text-[#6B1E1E] hover:underline font-mono"
+                      >
+                        {SITE_CONFIG.contact.email}
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <Phone className="w-4 h-4 text-[#B8902B] shrink-0 mt-0.5" />
+                    <div>
+                      <span className="font-bold text-[#2E1B0F] block">Direct Helpline (Mobile):</span>
+                      <a
+                        href={SITE_CONFIG.contact.phoneTel}
+                        className="text-[#2E1B0F] hover:text-[#6B1E1E] font-mono font-semibold"
+                      >
+                        {SITE_CONFIG.contact.phoneFormatted}
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <MapPin className="w-4 h-4 text-[#B8902B] shrink-0 mt-0.5" />
+                    <div>
+                      <span className="font-bold text-[#2E1B0F] block">Registered Cluster Address:</span>
+                      <p className="text-[#5A3A22] leading-snug">{SITE_CONFIG.contact.address}</p>
+                      <span className="text-[10px] text-[#8A5A36] font-mono mt-0.5 block">{SITE_CONFIG.contact.addressNote}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-2 border-t border-[#5A3A22]/15 text-[11px] text-[#8A5A36]">
+                  Monitored directly by founders Aryavrat Sharma & Meera Kulkarni.
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Working Form */}
+            <div className="lg:col-span-7">
+              {contactSubmitted ? (
+                <div className="p-8 bg-[#3B6E47]/10 border border-[#3B6E47]/40 rounded-[2px] text-center space-y-3">
+                  <CheckCircle2 className="w-10 h-10 text-[#3B6E47] mx-auto" />
+                  <h3 className="font-serif text-2xl font-bold text-[#2E1B0F]">Dispatch Transmitted Successfully</h3>
+                  <p className="text-xs text-[#5A3A22] leading-relaxed max-w-sm mx-auto">
+                    Thank you, {contactForm.name}. Your inquiry has been registered. Our founders will reply to {contactForm.email} within 24 hours.
+                  </p>
+                  <div className="pt-2">
+                    <button
+                      onClick={() => {
+                        setContactForm({
+                          name: '',
+                          email: '',
+                          phone: '',
+                          subject: 'Olfactory Guidance / Scent Selection',
+                          message: ''
+                        });
+                        setContactSubmitted(false);
+                      }}
+                      className="text-xs text-[#6B1E1E] underline font-mono"
+                    >
+                      Send another message
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <form onSubmit={handleContactSubmit} className="space-y-4 text-xs">
+                  <div>
+                    <label className="block font-semibold text-[#5A3A22] mb-1">Your Full Name *</label>
+                    <input
+                      type="text"
+                      placeholder="e.g. Vikramaditya Sen"
+                      value={contactForm.name}
+                      onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
+                      className="w-full px-3 py-2 bg-[#F1E6CC] border border-[#5A3A22]/40 rounded-[2px] focus:outline-none focus:border-[#B8902B]"
+                    />
+                    {contactErrors.name && <p className="text-[11px] text-[#6B1E1E] mt-0.5">{contactErrors.name}</p>}
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="block font-semibold text-[#5A3A22] mb-1">Email Address *</label>
+                      <input
+                        type="email"
+                        placeholder="patron@domain.com"
+                        value={contactForm.email}
+                        onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
+                        className="w-full px-3 py-2 bg-[#F1E6CC] border border-[#5A3A22]/40 rounded-[2px] focus:outline-none focus:border-[#B8902B]"
+                      />
+                      {contactErrors.email && <p className="text-[11px] text-[#6B1E1E] mt-0.5">{contactErrors.email}</p>}
+                    </div>
+                    <div>
+                      <label className="block font-semibold text-[#5A3A22] mb-1">Telephone Contact (Optional)</label>
+                      <input
+                        type="tel"
+                        placeholder="+91 98765 43210"
+                        value={contactForm.phone}
+                        onChange={(e) => setContactForm({ ...contactForm, phone: e.target.value })}
+                        className="w-full px-3 py-2 bg-[#F1E6CC] border border-[#5A3A22]/40 rounded-[2px] focus:outline-none focus:border-[#B8902B]"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block font-semibold text-[#5A3A22] mb-1">Inquiry Topic</label>
+                    <select
+                      value={contactForm.subject}
+                      onChange={(e) => setContactForm({ ...contactForm, subject: e.target.value })}
+                      className="w-full px-3 py-2 bg-[#F1E6CC] border border-[#5A3A22]/40 rounded-[2px] focus:outline-none focus:border-[#B8902B] text-[#2E1B0F]"
+                    >
+                      <option value="Olfactory Guidance / Scent Selection">Olfactory Guidance / Scent Selection</option>
+                      <option value="Order Tracking & Batch Passport Verification">Order Tracking & Batch Passport Verification</option>
+                      <option value="Corporate Gifting & Bespoke Sets">Corporate Gifting & Bespoke Sets</option>
+                      <option value="Kannauj Distiller Guild Partnership">Kannauj Distiller Guild Partnership</option>
+                      <option value="General Inquiry">General Inquiry</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block font-semibold text-[#5A3A22] mb-1">Message *</label>
+                    <textarea
+                      rows={3}
+                      placeholder="Share your inquiry, bespoke requirement, or olfactory questions..."
+                      value={contactForm.message}
+                      onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
+                      className="w-full px-3 py-2 bg-[#F1E6CC] border border-[#5A3A22]/40 rounded-[2px] focus:outline-none focus:border-[#B8902B]"
+                    />
+                    {contactErrors.message && <p className="text-[11px] text-[#6B1E1E] mt-0.5">{contactErrors.message}</p>}
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full py-3 bg-[#B8902B] hover:bg-[#D9B44A] text-[#2E1B0F] font-semibold text-xs rounded-[2px] border border-[#8A5A36] transition-all flex items-center justify-center gap-2 shadow-xs"
+                  >
+                    <Send className="w-3.5 h-3.5" />
+                    <span>Transmit Message to Kannauj Guild</span>
+                  </button>
+
+                  <div className="text-center pt-1">
+                    <a
+                      href={mailtoLink}
+                      className="text-[10px] font-mono text-[#8A5A36] hover:text-[#2E1B0F] underline"
+                    >
+                      Or click here to send via your email client (mailto fallback)
+                    </a>
+                  </div>
+                </form>
+              )}
+            </div>
           </div>
         </div>
       </section>
