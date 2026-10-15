@@ -1,0 +1,6 @@
+{
+  "name": "GandhaNiti | Authentic Kannauj Ittar",
+  "description": "Heritage hydro-distilled botanical perfume oils from Kannauj, guided by a scent quiz and verified batch-by-batch through the Arthashastra Saptanga framework.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+:root {
+  --parchment: #F1E6CC;
+  --deep-parchment: #E4D2A8;
+  --ink-brown: #2E1B0F;
+  --earth-brown: #5A3A22;
+  --clay: #8A5A36;
+  --maroon: #6B1E1E;
+  --gold: #B8902B;
+  --light-gold: #D9B44A;
+}
+
+body {
+  background-color: var(--parchment);
+  color: var(--ink-brown);
+  font-family: 'Source Sans 3', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-image: radial-gradient(rgba(184, 144, 43, 0.04) 1px, transparent 1px), radial-gradient(rgba(90, 58, 34, 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+}
+
+h1, h2, h3, h4, .font-serif {
+  font-family: 'Cormorant Garamond', 'Fraunces', serif;
+}
+
+.font-devanagari {
+  font-family: 'Tiro Devanagari Hindi', serif;
+}
+
+.font-body {
+  font-family: 'Source Sans 3', sans-serif;
+}
+
+/* Custom Royal Court Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #E4D2A8;
+}
+::-webkit-scrollbar-thumb {
+  background: #B8902B;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8A5A36;
+}
+
+/* Subtle parchment card styling */
+.parchment-card {
+  background-color: #F1E6CC;
+  border: 1px solid #5A3A22;
+  box-shadow: 0 2px 8px -2px rgba(46, 27, 15, 0.08), inset 0 0 0 1px rgba(184, 144, 43, 0.35);
+  border-radius: 3px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.parchment-card:hover {
+  border-color: #B8902B;
+  box-shadow: 0 6px 16px -4px rgba(46, 27, 15, 0.14), inset 0 0 0 1px rgba(184, 144, 43, 0.7);
+}
+
+/* Mehrab Arch Frame */
+.mehrab-arch {
+  position: relative;
+  border-top-left-radius: 50% 30%;
+  border-top-right-radius: 50% 30%;
+}
+
+/* Gold button */
+.btn-gold {
+  background-color: #B8902B;
+  color: #2E1B0F;
+  border: 1px solid #8A5A36;
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.btn-gold:hover {
+  background-color: #D9B44A;
+  transform: translateY(-1px);
+}
+
+.btn-maroon {
+  background-color: #6B1E1E;
+  color: #F1E6CC;
+  border: 1px solid #5A3A22;
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.btn-maroon:hover {
+  background-color: #521515;
+  transform: translateY(-1px);
+}
+
+.btn-outline-gold {
+  background-color: transparent;
+  color: #2E1B0F;
+  border: 1px solid #B8902B;
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-outline-gold:hover {
+  background-color: rgba(184, 144, 43, 0.15);
+  border-color: #8A5A36;
+}
